@@ -25,3 +25,5 @@ export const mainColor = '#9316C1';
 export const isPlayingColor = '#C321FF';
 export const isPlayingBackground = '#0C0C0C';
 export const ProgressBarEnd = '#C4C4C4';
+export const NavbarBackground = '#1C1C1C';
+export const ControllerBackground = '#262626';

@@ -1,18 +1,22 @@
 import React, {useState} from 'react'
-import { SignInPage, LogoContainer, LogoTitle, DivWrapper, FormButton, LoginButton, LoginButtons, GoogleButton, FacebookButton, Title } from './login.styles.jsx';
+import { SignInPage, LogoContainer, LogoTitle, DivWrapper, FormButton, LoginButtons, GoogleButton, FacebookButton, Title } from './login.styles.jsx';
 import FormInput from '../../components/form-input/form-input.component';
 import Logo from '../../assets/img/music.png'
 import { FormWrapper } from '../../components/form-input/form-input.styles.jsx';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
     const [userCredentials, setCredentials] = useState({ email: '', password: '' });
     const {email, password} = userCredentials;
+    const history = useHistory();
 
     const handleSubmit = async event => {
         event.preventDefault();
 
         if(email === 'admin' && password === 'admin') {
             console.log('All Good');
+            localStorage.setItem('currentUser', true);
+            history.push('/home');
         } else console.log('Something is wrong');
 
         setCredentials({ email: '', password: '' });
@@ -34,7 +38,7 @@ const Login = () => {
                 <FormWrapper onSubmit={handleSubmit} style={{width: '100%'}}>
                     <FormInput 
                         name='email' 
-                        type="email" 
+                        type="text" 
                         value={email} 
                         handleChange={handleChange}
                         label='email'
