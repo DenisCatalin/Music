@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const ControllerContainer2 = styled.div`
+export const SongListContainer = styled.div`
     width: 100%;
     height: 100%;
-    padding: 0 .3rem;
+    overflow: auto;
 `;

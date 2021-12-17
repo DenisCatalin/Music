@@ -5,15 +5,20 @@ import Home from './pages/home/home.component';
 import Login from './pages/login/login.component';
 
 const App = () => {
+    const code = new URLSearchParams(window.location.search).get('code');
     const currentUser = localStorage.getItem('currentUser');
-    console.log(currentUser);
-
+    if(currentUser) localStorage.setItem('currentUser', code);
+    else localStorage.removeItem('currentUser');
+    
     return (
         <Router>
             <GlobalStyles />   
-            <Route exact path="/" render={() => currentUser === 'true' ? (<Redirect to='/home' />) : (<Redirect to='/signin' />)} />
-            <Route path='/signin' component={Login}/>
-            <Route path='/home' component={Home}/>
+            <Route path="/" render={() => code ? (<Redirect to='/home' />) : (<Redirect to='/signin' />)} />
+            {code ? 
+                <Route path='/home' component={Home}/>
+            :
+                <Route path='/signin' component={Login}/>
+            }
         </Router>
     )
 }

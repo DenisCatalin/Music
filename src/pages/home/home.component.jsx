@@ -5,13 +5,14 @@ import PageContent from '../../components/page-content/page-content.component';
 import Controller from '../../components/controller/controller.component';
 
 const Home = () => {
+    const currentUser = localStorage.getItem('currentUser');
     return (
         <HomepageContainer>
             <NavContainer>
                 <Navbar />
             </NavContainer>
             <ContentContainer>
-                <PageContent />
+                <PageContent code={currentUser} />
             </ContentContainer>
             <ControllerContainer>
                 <Controller />

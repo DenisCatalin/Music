@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
-import { SignInPage, LogoContainer, LogoTitle, DivWrapper, FormButton, LoginButtons, GoogleButton, FacebookButton, Title } from './login.styles.jsx';
+import { SignInPage, LogoContainer, LogoTitle, DivWrapper, FormButton, LoginButtons, GoogleButton, FacebookButton, Title, SpotifyButton } from './login.styles.jsx';
 import FormInput from '../../components/form-input/form-input.component';
 import Logo from '../../assets/img/music.png'
 import { FormWrapper } from '../../components/form-input/form-input.styles.jsx';
 import { useHistory } from 'react-router-dom';
+
+const AUTH_URL = 'https://accounts.spotify.com/authorize?client_id=cf1470880e794c67801f5e7d6262a6cd&response_type=code&redirect_uri=http://localhost:3000&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state';
 
 const Login = () => {
     const [userCredentials, setCredentials] = useState({ email: '', password: '' });
@@ -60,6 +62,7 @@ const Login = () => {
                 <LoginButtons>
                     <FacebookButton>f</FacebookButton>
                     <GoogleButton>G</GoogleButton>
+                    <SpotifyButton><a href={AUTH_URL}><i className="fab fa-spotify" style={{color: 'white'}}></i></a></SpotifyButton>
                 </LoginButtons>
             </DivWrapper>
         </SignInPage>

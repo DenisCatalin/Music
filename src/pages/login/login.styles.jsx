@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { backgroundColor, textColor, mainColor, facebookButtonColor, googleButtonColor } from "../../global.styles";
+import { backgroundColor, textColor, mainColor, facebookButtonColor, googleButtonColor, spotifyButtonColor } from "../../global.styles";
 
 export const SignInPage = styled.div`
     width: 100%;
@@ -98,6 +98,25 @@ export const GoogleButton = styled.button`
     color: white;
     font-weight: bold;
     background: ${googleButtonColor};
+
+    @media screen and (max-width: 420px) {
+        font-size: 1.5em;
+        width: 50px;
+        height: 50px;
+    }
+`;
+
+export const SpotifyButton = styled.button`
+    width: 30%;
+    height: 70%;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 2em;
+    color: white;
+    font-weight: bold;
+    background: ${spotifyButtonColor};
 
     @media screen and (max-width: 420px) {
         font-size: 1.5em;
